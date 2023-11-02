@@ -36,7 +36,7 @@ dependencies {
     implementation("androidx.viewpager2:viewpager2:1.0.0")
     implementation("com.github.bumptech.glide:glide:4.12.0")
     implementation("com.android.volley:volley:1.2.1")
-    implementation("com.google.code.gson:gson'2.9.1")
+    implementation("com.google.code.gson:gson:2.9.1")
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")

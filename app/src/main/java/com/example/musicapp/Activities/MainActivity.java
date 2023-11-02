@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 import androidx.viewpager2.widget.CompositePageTransformer;
@@ -15,6 +16,7 @@ import androidx.viewpager2.widget.ViewPager2;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
+import android.widget.ProgressBar;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.StringRequest;
@@ -32,6 +34,8 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerViewBestMusics, recyclerViewUpcoming, recyclerViewCategory;
     private RequestQueue mRequestQueue;
     private StringRequest mStringRequest, mStringRequest2, getmStringRequest3;
+    private ProgressBar loading1, loading2, loading3;
+
 
     private ViewPager2 viewPager2;
     private Handler slideHandler = new Handler();
@@ -100,7 +104,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initView() {
+
         viewPager2 = findViewById(R.id.viewpagerSlider);
+        recyclerViewBestMusics=findViewById(R.id.view1);
+        recyclerViewBestMusics.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL,false));
+        recyclerViewUpcoming=findViewById(R.id.view2);
+        recyclerViewUpcoming.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+        recyclerViewCategory=findViewById(R.id.view3);
+        recyclerViewCategory.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+        loading1=findViewById(R.id.progressBar1);
+        loading2=findViewById(R.id.progressBar2);
+        loading3=findViewById(R.id.progressBar3);
     }
 
 
