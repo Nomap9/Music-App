@@ -15,15 +15,23 @@ import androidx.viewpager2.widget.ViewPager2;
 
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
 
+import com.android.volley.Request;
 import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.example.musicapp.Adapters.SliderAdapters;
+import com.example.musicapp.Adapters.SongListAdapter;
+import com.example.musicapp.Domain.ListFilm;
 import com.example.musicapp.Domain.SliderItems;
 import com.example.musicapp.R;
 import com.google.android.material.tabs.TabLayout;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,6 +57,29 @@ public class MainActivity extends AppCompatActivity {
         
         initView();
         banners();
+        sendRequest();
+    }
+
+    private void sendRequest() {
+        mRequestQueue= Volley.newRequestQueue(this);
+        loading1.setVisibility(View.VISIBLE);
+        mStringRequest=new StringRequest(Request.Method.GET, "https://moviesapi.ir/api/v1/movies?page=1", new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Gson gson = new Gson();
+                loading1.setVisibility(View.GONE);
+                ListFilm items=gson.fromJson(response,ListFilm.class);
+                adapterBestMusics=new SongListAdapter(items);
+                recyclerViewBestMusics.setAdapter(adapterBestMusics);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                loading1.setVisibility(View.GONE);
+                Log.i("UiLover", "onErrorResponse" + error.toString());
+            }
+        });
+        mRequestQueue.add(mStringRequest);
     }
 
     private void banners() {

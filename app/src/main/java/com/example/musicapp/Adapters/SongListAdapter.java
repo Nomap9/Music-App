@@ -1,6 +1,7 @@
 package com.example.musicapp.Adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.bumptech.glide.request.RequestOptions;
+import com.example.musicapp.Activities.DetailActivity;
 import com.example.musicapp.Domain.ListFilm;
 import com.example.musicapp.R;
 
@@ -47,7 +49,9 @@ public class SongListAdapter extends RecyclerView.Adapter<SongListAdapter.ViewHo
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent=new Intent(holder.itemView.getContext(), DetailActivity.class);
+                intent.putExtra("id",items.getData().get(position).getId());
+                context.startActivity(intent);
             }
         });
     }
