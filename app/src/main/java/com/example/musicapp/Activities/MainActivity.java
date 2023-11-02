@@ -16,6 +16,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.StringRequest;
 import com.example.musicapp.Adapters.SliderAdapters;
 import com.example.musicapp.Domain.SliderItems;
 import com.example.musicapp.R;
@@ -26,6 +28,11 @@ import java.util.List;
 import java.util.Set;
 
 public class MainActivity extends AppCompatActivity {
+    private RecyclerView.Adapter adapterBestMusics, AdapterUpcoming, adapterCategory;
+    private RecyclerView recyclerViewBestMusics, recyclerViewUpcoming, recyclerViewCategory;
+    private RequestQueue mRequestQueue;
+    private StringRequest mStringRequest, mStringRequest2, getmStringRequest3;
+
     private ViewPager2 viewPager2;
     private Handler slideHandler = new Handler();
     
