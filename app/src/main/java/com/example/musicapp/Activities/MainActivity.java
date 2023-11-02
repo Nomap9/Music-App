@@ -20,12 +20,15 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.musicapp.Adapters.CategoryListAdapter;
 import com.example.musicapp.Adapters.SliderAdapters;
 import com.example.musicapp.Adapters.SongListAdapter;
+import com.example.musicapp.Domain.GenresItem;
 import com.example.musicapp.Domain.ListFilm;
 import com.example.musicapp.Domain.SliderItems;
 import com.example.musicapp.R;
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
         banners();
         sendRequestBestSongs();
         sendRequestUpComming();
+        sendRequestCategory();
     }
 
     private void sendRequestBestSongs() {
@@ -96,6 +100,30 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         mRequestQueue.add(mStringRequest3);
+    }
+
+    private void sendRequestCategory() {
+        mRequestQueue= Volley.newRequestQueue(this);
+        loading2.setVisibility(View.VISIBLE);
+        mStringRequest2=new StringRequest(Request.Method.GET, "https://moviesapi.ir/api/v1/genres", new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Gson gson = new Gson();
+                loading2.setVisibility(View.GONE);
+                ArrayList<GenresItem> catList=gson.fromJson(response, new TypeToken<ArrayList<GenresItem>>(){
+
+                }.getType());
+                adapterCategory=new CategoryListAdapter(catList);
+                recyclerViewCategory.setAdapter(adapterCategory);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                loading2.setVisibility(View.GONE);
+                Log.i("UiLover", "onErrorResponse" + error.toString());
+            }
+        });
+        mRequestQueue.add(mStringRequest2);
     }
 
     private void banners() {
