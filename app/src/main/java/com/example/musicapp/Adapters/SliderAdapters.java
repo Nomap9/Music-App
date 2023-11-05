@@ -19,7 +19,7 @@ import com.example.musicapp.R;
 
 import java.util.List;
 
-public class SliderAdapters extends RecyclerView.Adapter<SliderAdapters.SliderViewHodlder> {
+public class SliderAdapters extends RecyclerView.Adapter<SliderAdapters.SliderViewHolder> {
     private List<SliderItems> sliderItems;
     private ViewPager2 viewPager2;
     private Context context;
@@ -31,17 +31,17 @@ public class SliderAdapters extends RecyclerView.Adapter<SliderAdapters.SliderVi
 
     @NonNull
     @Override
-    public SliderAdapters.SliderViewHodlder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public SliderViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         context = parent.getContext();
-        return new SliderViewHodlder(LayoutInflater.from(parent.getContext()).inflate(
+        return new SliderViewHolder(LayoutInflater.from(parent.getContext()).inflate(
                 R.layout.slide_item_container, parent, false
         ));
 
     }
 
     @Override
-    public void onBindViewHolder(@NonNull SliderAdapters.SliderViewHodlder holder, int position) {
+    public void onBindViewHolder(@NonNull SliderViewHolder holder, int position) {
     holder.setImage(sliderItems.get(position));
     if(position==sliderItems.size() - 2) {
         viewPager2.post(runnable);
@@ -53,9 +53,9 @@ public class SliderAdapters extends RecyclerView.Adapter<SliderAdapters.SliderVi
         return sliderItems.size();
     }
 
-    public class SliderViewHodlder extends  RecyclerView.ViewHolder{
+    public class SliderViewHolder extends  RecyclerView.ViewHolder{
         private ImageView imageView;
-        public SliderViewHodlder(@NonNull View itemView) {
+        public SliderViewHolder(@NonNull View itemView) {
             super(itemView);
             imageView = itemView.findViewById(R.id.imageSlide);
         }
