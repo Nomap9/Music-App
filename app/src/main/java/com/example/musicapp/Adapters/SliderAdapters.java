@@ -19,29 +19,33 @@ import com.example.musicapp.R;
 
 import java.util.List;
 
-public class SliderAdapters extends RecyclerView.Adapter<SliderAdapters.SliderViewHodlder> {
+public class SliderAdapters extends RecyclerView.Adapter<SliderAdapters.SliderViewHolder> {
+    //dùng để kết nối dữ liệu (danh sách sliderItems) với giao diện người dùng để hiển thị các mục trong ViewPager2.
     private List<SliderItems> sliderItems;
     private ViewPager2 viewPager2;
     private Context context;
 
     public SliderAdapters(List<SliderItems> sliderItems, ViewPager2 viewPager2) {
+        //Constructor này được sử dụng để khởi tạo Adapter và truyền vào danh sách sliderItems cùng với đối tượng ViewPager2 để thực hiện kết nối dữ liệu.
         this.sliderItems = sliderItems;
         this.viewPager2 = viewPager2;
     }
 
     @NonNull
     @Override
-    public SliderAdapters.SliderViewHodlder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-
+    public SliderViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        //Được gọi khi RecyclerView cần tạo một ViewHolder mới.
+        //Trong phương thức này, bạn gán giao diện từ tệp layout slide_item_container cho mỗi mục trong ViewPager2.
         context = parent.getContext();
-        return new SliderViewHodlder(LayoutInflater.from(parent.getContext()).inflate(
+        return new SliderViewHolder(LayoutInflater.from(parent.getContext()).inflate(
                 R.layout.slide_item_container, parent, false
         ));
 
     }
 
     @Override
-    public void onBindViewHolder(@NonNull SliderAdapters.SliderViewHodlder holder, int position) {
+    public void onBindViewHolder(@NonNull SliderViewHolder holder, int position) {
+        //Được gọi khi RecyclerView cần nạp dữ liệu vào ViewHolder (giao diện item) tại vị trí cụ thể.
     holder.setImage(sliderItems.get(position));
     if(position==sliderItems.size() - 2) {
         viewPager2.post(runnable);
@@ -51,15 +55,19 @@ public class SliderAdapters extends RecyclerView.Adapter<SliderAdapters.SliderVi
     @Override
     public int getItemCount() {
         return sliderItems.size();
-    }
+    } //Trả về số lượng mục trong danh sách sliderItems, quyết định kích thước của ViewPager2.
 
-    public class SliderViewHodlder extends  RecyclerView.ViewHolder{
+    public class SliderViewHolder extends  RecyclerView.ViewHolder{
+        //Là một lớp trong lớp Adapter để đại diện cho ViewHolder (giao diện item) trong RecyclerView.
+        //Có một ImageView để hiển thị hình ảnh.
         private ImageView imageView;
-        public SliderViewHodlder(@NonNull View itemView) {
+        public SliderViewHolder(@NonNull View itemView) {
+            //Là một lớp trong lớp Adapter để đại diện cho ViewHolder (giao diện item) trong RecyclerView.
             super(itemView);
             imageView = itemView.findViewById(R.id.imageSlide);
         }
         void setImage(SliderItems sliderItems){
+            //Là một phương thức của lớp SliderViewHolder để thiết lập hình ảnh vào ImageView trong ViewHolder.
             RequestOptions requestOptions = new RequestOptions();
             requestOptions = requestOptions.transform(new CenterCrop(), new RoundedCorners(60));
 
@@ -73,6 +81,7 @@ public class SliderAdapters extends RecyclerView.Adapter<SliderAdapters.SliderVi
     private Runnable runnable = new Runnable() {
         @Override
         public void run() {
+            //lặp lại danh sách sliderItems khi đang hiển thị ở vị trí cuối cùng. Điều này giúp tạo hiệu ứng vô hạn trong thanh trượt hình ảnh.
             sliderItems.addAll(sliderItems);
             notifyDataSetChanged();
         }
