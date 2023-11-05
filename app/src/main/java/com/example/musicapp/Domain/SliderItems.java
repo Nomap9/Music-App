@@ -5,7 +5,7 @@ public class SliderItems {
 
     public int getImage() {
         return image;
-    }
+    } // trả về giá trị của thuộc tính image
 
     public SliderItems(int image) {
         this.image = image;
