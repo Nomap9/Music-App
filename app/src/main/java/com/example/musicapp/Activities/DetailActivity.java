@@ -19,9 +19,9 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
-import com.example.musicapp.Adapters.ArtistListAdapter;
-import com.example.musicapp.Adapters.CategoryEachSongListAdapter;
-import com.example.musicapp.Domain.FilmItem;
+//import com.example.musicapp.Adapters.ArtistListAdapter;
+//import com.example.musicapp.Adapters.CategoryEachSongListAdapter;
+//import com.example.musicapp.Domain.FilmItem;
 import com.example.musicapp.R;
 import com.google.gson.Gson;
 
@@ -43,50 +43,50 @@ public class DetailActivity extends AppCompatActivity {
 
         idFilm=getIntent().getIntExtra("id", 0);
         initView();
-        sendRequest();
+//        sendRequest();
     }
 
-    private void sendRequest() {
-        mRequestQueue= Volley.newRequestQueue(this);
-        progressBar.setVisibility(View.VISIBLE);
-        scrollView.setVisibility(View.GONE);
-
-        mStringRequest=new StringRequest(Request.Method.GET, "https://moviesapi.ir/api/v1/movies/" + idFilm, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                Gson gson=new Gson();
-                progressBar.setVisibility(View.GONE);
-                scrollView.setVisibility(View.GONE);
-
-                FilmItem item = gson.fromJson(response,FilmItem.class);
-
-                Glide.with(DetailActivity.this)
-                        .load(item.getPoster())
-                        .into(pic2);
-
-                titleTxt.setText(item.getTitle());
-                songRateTxt.setText(item.getImdbRating());
-                songTimeTxt.setText(item.getRuntime());
-                songSummaryinfo.setText(item.getPlot());
-                songArtistInfo.setText(item.getActors());
-                if(item.getImages()!=null){
-                    adapterArtistList=new ArtistListAdapter(item.getImages());
-                    recyclerViewArtist.setAdapter(adapterArtistList);
-                }
-                if(item.getGenres() != null) {
-                    adapterCategory= new CategoryEachSongListAdapter(item.getGenres());
-                    recyclerViewCategory.setAdapter(adapterCategory);
-                }
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                progressBar.setVisibility(View.GONE);
-            }
-        });
-        mRequestQueue.add(mStringRequest);
-
-    }
+//    private void sendRequest() {
+//        mRequestQueue= Volley.newRequestQueue(this);
+//        progressBar.setVisibility(View.VISIBLE);
+//        scrollView.setVisibility(View.GONE);
+//
+//        mStringRequest=new StringRequest(Request.Method.GET, "https://moviesapi.ir/api/v1/movies/" + idFilm, new Response.Listener<String>() {
+//            @Override
+//            public void onResponse(String response) {
+//                Gson gson=new Gson();
+//                progressBar.setVisibility(View.GONE);
+//                scrollView.setVisibility(View.GONE);
+//
+//                FilmItem item = gson.fromJson(response,FilmItem.class);
+//
+//                Glide.with(DetailActivity.this)
+//                        .load(item.getPoster())
+//                        .into(pic2);
+//
+//                titleTxt.setText(item.getTitle());
+//                songRateTxt.setText(item.getImdbRating());
+//                songTimeTxt.setText(item.getRuntime());
+//                songSummaryinfo.setText(item.getPlot());
+//                songArtistInfo.setText(item.getActors());
+//                if(item.getImages()!=null){
+//                    adapterArtistList=new ArtistListAdapter(item.getImages());
+//                    recyclerViewArtist.setAdapter(adapterArtistList);
+//                }
+//                if(item.getGenres() != null) {
+//                    adapterCategory= new CategoryEachSongListAdapter(item.getGenres());
+//                    recyclerViewCategory.setAdapter(adapterCategory);
+//                }
+//            }
+//        }, new Response.ErrorListener() {
+//            @Override
+//            public void onErrorResponse(VolleyError error) {
+//                progressBar.setVisibility(View.GONE);
+//            }
+//        });
+//        mRequestQueue.add(mStringRequest);
+//
+//    }
 
     @SuppressLint("WrongViewCast")
     private void initView() {
