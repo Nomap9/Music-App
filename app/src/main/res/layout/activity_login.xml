@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FF9800"
+    android:background="#AEBAE8"
     tools:context=".Activities.LoginActivity"
     tools:layout_editor_absoluteX="-9dp"
     tools:layout_editor_absoluteY="0dp">
@@ -15,7 +15,7 @@
         android:layout_height="414dp"
         android:layout_marginTop="36dp"
 
-        android:background="@drawable/back"
+        android:background="@drawable/logo"
         android:gravity="center_horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
@@ -28,9 +28,9 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="20dp"
-            android:fontFamily="cursive"
+            android:fontFamily="Roboto"
+
             android:textColor="@color/black"
-            android:text="Login"
             android:textSize="40sp"
             android:textStyle="bold" />
 
@@ -40,9 +40,9 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="100dp"
-            android:fontFamily="cursive"
-            android:textColor="@color/black"
+            android:fontFamily="Roboto"
             android:text="Email"
+            android:textColor="@color/black"
             android:textSize="25dp"
             android:textStyle="bold" />
 
@@ -52,7 +52,6 @@
             android:layout_height="50dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="130dp"
-            android:background="@drawable/back"
             android:ems="10"
             android:hint="Email..."
             android:inputType="textEmailAddress"
@@ -65,9 +64,9 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="210dp"
-            android:fontFamily="cursive"
-            android:textColor="@color/black"
+            android:fontFamily="Roboto"
             android:text="Password"
+            android:textColor="@color/black"
             android:textSize="25dp"
             android:textStyle="bold" />
 
@@ -77,7 +76,6 @@
             android:layout_height="50dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="240dp"
-            android:background="@drawable/back"
             android:ems="10"
             android:hint="Password..."
             android:inputType="textPassword"
@@ -105,7 +103,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="80dp"
         android:fontFamily="cursive"
-        android:text="Music App"
+        android:text="Login"
         android:textColor="#000000"
         android:textSize="60sp"
         android:textStyle="bold"
@@ -119,10 +117,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="88dp"
-        android:fontFamily="cursive"
-        android:text="Register"
         android:clickable="true"
+        android:fontFamily="cursive"
         android:onClick="onTextViewClick"
+        android:text="Register"
         android:textColor="#4987F1"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -144,33 +142,33 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/frameLayout" />
 
-    <TextView
-        android:id="@+id/subtitle2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:fontFamily="cursive"
-        android:text="If you forgot password "
-        android:textColor="#000000"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/Fogotpassword"
-        app:layout_constraintHorizontal_bias="0.983"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/subtitle" />
+<!--    <TextView-->
+<!--        android:id="@+id/subtitle2"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="16dp"-->
+<!--        android:fontFamily="cursive"-->
+<!--        android:text="If you forgot password "-->
+<!--        android:textColor="#000000"-->
+<!--        android:textSize="20sp"-->
+<!--        android:textStyle="bold"-->
+<!--        app:layout_constraintEnd_toStartOf="@+id/Fogotpassword"-->
+<!--        app:layout_constraintHorizontal_bias="0.983"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/subtitle" />-->
 
-    <TextView
-        android:id="@+id/Fogotpassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="56dp"
-        android:fontFamily="cursive"
-        android:text="Forgot password"
-        android:textColor="#4987F1"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Register" />
+<!--    <TextView-->
+<!--        android:id="@+id/Fogotpassword"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="16dp"-->
+<!--        android:layout_marginEnd="56dp"-->
+<!--        android:fontFamily="cursive"-->
+<!--        android:text="Forgot password"-->
+<!--        android:textColor="#4987F1"-->
+<!--        android:textSize="20sp"-->
+<!--        android:textStyle="bold"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/Register" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
