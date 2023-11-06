@@ -128,17 +128,21 @@ public class MainActivity extends AppCompatActivity {
 
     private void banners() {
         List<SliderItems> sliderItems = new ArrayList<>();
+        //Tạo một danh sách sliderItems chứa các đối tượng SliderItems, mỗi đối tượng đại diện cho một hình ảnh trong thanh trượt.
         sliderItems.add(new SliderItems(R.drawable.wide));
         sliderItems.add(new SliderItems(R.drawable.wide1));
         sliderItems.add(new SliderItems(R.drawable.wide3));
 
         viewPager2.setAdapter(new SliderAdapters(sliderItems, viewPager2));
+        //Đặt Adapter của ViewPager2 bằng cách sử dụng SliderAdapters và truyền vào danh sách sliderItems và ViewPager2.
         viewPager2.setClipToPadding(false);
         viewPager2.setClipChildren(false);
         viewPager2.setOffscreenPageLimit(3);
-        viewPager2.getChildAt(0).setOverScrollMode((RecyclerView.OVER_SCROLL_NEVER));
+        viewPager2.getChildAt(0).setOverScrollMode((RecyclerView.OVER_SCROLL_NEVER));// tắt hiệu ứng over-scrolling của ViewPager2
 
         CompositePageTransformer compositePageTransformer = new CompositePageTransformer();
+        //Sử dụng CompositePageTransformer để áp dụng hiệu ứng trượt cho các hình ảnh trong ViewPager2.
+        // Hiệu ứng này bao gồm việc thay đổi kích thước và vị trí của các hình ảnh để tạo hiệu ứng trượt đẹp mắt.
         compositePageTransformer.addTransformer(new MarginPageTransformer(40));
         compositePageTransformer.addTransformer(new ViewPager2.PageTransformer() {
             @Override
@@ -155,6 +159,7 @@ public class MainActivity extends AppCompatActivity {
             public void onPageSelected(int position) {
                 super.onPageSelected(position);
                 slideHandler.removeCallbacks(sliderRunnable);
+                //tự động chuyển trang trong ViewPager2 sau một khoảng thời gian cố định.
             }
         });
     }
