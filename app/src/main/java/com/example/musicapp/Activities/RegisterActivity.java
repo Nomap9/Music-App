@@ -71,8 +71,8 @@ public class RegisterActivity extends AppCompatActivity {
                     public void onResponse(JSONObject response) {
                         // Xử lý phản hồi từ API
                         Log.d("API Response", response.toString());
-                     //   Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
-                  //      startActivity(intent);
+                        Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                        startActivity(intent);
                     }
                 },
                 new Response.ErrorListener() {
