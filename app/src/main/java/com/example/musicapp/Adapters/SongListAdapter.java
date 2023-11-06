@@ -16,6 +16,7 @@ import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.musicapp.Activities.DetailActivity;
+import com.example.musicapp.Activities.MainListSong;
 import com.example.musicapp.Domain.ListFilm;
 import com.example.musicapp.R;
 
@@ -55,7 +56,7 @@ public class SongListAdapter extends RecyclerView.Adapter<SongListAdapter.ViewHo
             // Nó cũng thiết lập một OnClickListener cho mỗi mục để mở một DetailActivity khi được nhấp vào, và truyền id của mục đã chọn như một tham số thêm.
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(holder.itemView.getContext(), DetailActivity.class);
+                Intent intent=new Intent(holder.itemView.getContext(), MainListSong.class);
                 intent.putExtra("id",items.getData().get(position).getId());
                 context.startActivity(intent);
             }

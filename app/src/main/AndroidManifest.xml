@@ -30,6 +30,13 @@
             android:name=".Activities.DetailActivity"
             android:exported="false" />
         <activity
+            android:name=".Activities.PlaySong"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.MainListSong"
+            android:exported="true">
+        </activity>
+        <activity
             android:name=".Activities.LoginActivity"
             android:exported="true">
             <intent-filter>
