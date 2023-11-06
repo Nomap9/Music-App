@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
     private void sendRequestBestSongs() {
         mRequestQueue= Volley.newRequestQueue(this);
         loading1.setVisibility(View.VISIBLE);
-        mStringRequest=new StringRequest(Request.Method.GET, "https://moviesapi.ir/api/v1/movies?page=11", new Response.Listener<String>() {
+        mStringRequest=new StringRequest(Request.Method.GET, "https://moviesapi.ir/api/v1/movies?page=17", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 Gson gson = new Gson();

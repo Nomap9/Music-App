@@ -58,7 +58,7 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.SongViewHolder
     }
 
     private void onClickListenSong(Song song){
-        Intent intent = new Intent(mContext, MainActivity.class);
+        Intent intent = new Intent(mContext, PlaySong.class);
         Bundle bundle = new Bundle();
         bundle.putSerializable("object song", song);
         intent.putExtras(bundle);

@@ -44,7 +44,7 @@ public class MainListSong extends AppCompatActivity {
         btnChangeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainListSong.this,MainActivity.class);
+                Intent intent = new Intent(MainListSong.this, PlaySong.class);
                 startActivity(intent);
             }
         });

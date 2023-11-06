@@ -15,12 +15,6 @@
         android:theme="@style/Theme.AppMusic"
         tools:targetApi="31">
         <activity
-            android:name=".Activities.PlaySong"
-            android:exported="false" />
-        <activity
-            android:name=".Activities.DetailActivity"
-            android:exported="false" />
-        <activity
             android:name=".Activities.MainActivity"
             android:exported="true">
             <intent-filter>
@@ -30,8 +24,26 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".Activities.RegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.DetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.PlaySong"
+            android:exported="false" />
+        <activity
             android:name=".Activities.MainListSong"
             android:exported="true">
+        </activity>
+        <activity
+            android:name=".Activities.LoginActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 
