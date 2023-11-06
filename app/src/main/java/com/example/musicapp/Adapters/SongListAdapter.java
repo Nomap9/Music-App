@@ -20,12 +20,14 @@ import com.example.musicapp.Domain.ListFilm;
 import com.example.musicapp.R;
 
 public class SongListAdapter extends RecyclerView.Adapter<SongListAdapter.ViewHolder> {
+    // Adapter này được thiết kế để hiển thị một danh sách các bài hát hoặc bộ phim trong một RecyclerView,
+    // mỗi mục có tiêu đề và một hình ảnh tương ứng. Khi một mục được nhấp, nó mở một DetailActivity hiển thị thông tin chi tiết về mục đã chọn.
     ListFilm items;
     Context context;
 
     public SongListAdapter(ListFilm items) {
         this.items = items;
-    }
+    }//Constructor SongListAdapter(ListFilm items) được sử dụng để khởi tạo adapter với nguồn dữ liệu.
 
     @NonNull
     @Override
@@ -33,10 +35,13 @@ public class SongListAdapter extends RecyclerView.Adapter<SongListAdapter.ViewHo
         context=parent.getContext();
         View inflate = LayoutInflater.from(parent.getContext()).inflate(R.layout.viewholder_song, parent, false);
         return new ViewHolder(inflate);
+        //chịu trách nhiệm để khởi tạo bố cục cho từng mục trong RecyclerView. Nó inflate bố cục "viewholder_song" và trả về một thể hiện ViewHolder mới.
     }
 
     @Override
     public void onBindViewHolder(@NonNull SongListAdapter.ViewHolder holder, int position) {
+        //được gọi cho mỗi mục trong RecyclerView và chịu trách nhiệm gắn dữ liệu vào ViewHolder.
+        // Nó đặt tiêu đề và hình ảnh cho mục hiện tại bằng cách sử dụng Glide để tải hình ảnh.
     holder.titleTxt.setText(items.getData().get(position).getTitle());
         RequestOptions requestOptions = new RequestOptions();
         requestOptions=requestOptions.transform(new CenterCrop(), new RoundedCorners(30));
@@ -47,6 +52,7 @@ public class SongListAdapter extends RecyclerView.Adapter<SongListAdapter.ViewHo
                 .into(holder.pic);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
+            // Nó cũng thiết lập một OnClickListener cho mỗi mục để mở một DetailActivity khi được nhấp vào, và truyền id của mục đã chọn như một tham số thêm.
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(holder.itemView.getContext(), DetailActivity.class);
@@ -59,6 +65,7 @@ public class SongListAdapter extends RecyclerView.Adapter<SongListAdapter.ViewHo
     @Override
     public int getItemCount() {
         return items.getData().size();
+        // trả về số lượng các mục trong nguồn dữ liệu items.
     }
 
     public class ViewHolder extends  RecyclerView.ViewHolder{
