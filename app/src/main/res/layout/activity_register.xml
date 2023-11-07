@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FF9800"
+    android:background="#AEBAE8"
     tools:context=".Activities.RegisterActivity"
     tools:layout_editor_absoluteX="-17dp"
     tools:layout_editor_absoluteY="0dp">
@@ -15,7 +15,6 @@
         android:layout_height="534dp"
         android:layout_marginTop="12dp"
 
-        android:background="@drawable/back"
         android:gravity="center_horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -27,9 +26,9 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="20dp"
-            android:fontFamily="cursive"
-            android:textColor="@color/black"
+            android:fontFamily="Roboto"
             android:text="Register"
+            android:textColor="@color/black"
             android:textSize="40sp"
             android:textStyle="bold" />
 
@@ -39,9 +38,9 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="90dp"
-            android:fontFamily="cursive"
-            android:textColor="@color/black"
+            android:fontFamily="Roboto"
             android:text="Email"
+            android:textColor="@color/black"
             android:textSize="25dp"
             android:textStyle="bold" />
 
@@ -51,7 +50,6 @@
             android:layout_height="50dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="120dp"
-            android:background="@drawable/back"
             android:ems="10"
             android:hint="Email..."
             android:inputType="textEmailAddress"
@@ -64,9 +62,9 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="180dp"
-            android:fontFamily="cursive"
-            android:textColor="@color/black"
+            android:fontFamily="Roboto"
             android:text="Password"
+            android:textColor="@color/black"
             android:textSize="25dp"
             android:textStyle="bold" />
 
@@ -76,7 +74,6 @@
             android:layout_height="50dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="210dp"
-            android:background="@drawable/back"
             android:ems="10"
             android:hint="Password..."
             android:inputType="textPassword"
@@ -88,9 +85,9 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="270dp"
-            android:fontFamily="cursive"
-            android:textColor="@color/black"
+            android:fontFamily="Roboto"
             android:text="First name"
+            android:textColor="@color/black"
             android:textSize="25dp"
             android:textStyle="bold" />
 
@@ -100,9 +97,9 @@
             android:layout_height="50dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="300dp"
-            android:background="@drawable/back"
             android:ems="10"
             android:hint="First Name..."
+            android:textColor="@color/black"
             android:inputType="text"
             android:padding="15dp" />
 
@@ -112,9 +109,9 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="360dp"
-            android:fontFamily="cursive"
-            android:textColor="@color/black"
+            android:fontFamily="Roboto"
             android:text="Last name"
+            android:textColor="@color/black"
             android:textSize="25dp"
             android:textStyle="bold" />
 
@@ -124,10 +121,9 @@
             android:layout_height="50dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="390dp"
-            android:background="@drawable/back"
             android:ems="10"
             android:hint="Last Name..."
-            android:inputType="textPassword"
+            android:inputType="text"
             android:padding="15dp" />
 
         <Button
@@ -166,10 +162,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
         android:layout_marginEnd="104dp"
-        android:fontFamily="cursive"
-        android:text="Login"
         android:clickable="true"
+        android:fontFamily="cursive"
         android:onClick="onTextViewClick"
+        android:text="Login"
         android:textColor="#4987F1"
         android:textSize="20sp"
         android:textStyle="bold"
