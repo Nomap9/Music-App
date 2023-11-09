@@ -13,18 +13,18 @@
         android:padding="5dp">
 
         <TextView
-            android:layout_weight="1"
             android:id="@+id/txtTitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="DANH SÁCH BÀI HÁT"
-            android:textColor="#fff"
-            android:textStyle="bold"
+            android:layout_weight="1"
+            android:background="@android:color/holo_green_light"
             android:fontFamily="sans-serif-condensed-light"
-            android:textSize="18sp"
             android:gravity="center"
             android:padding="10dp"
-            android:background="@android:color/holo_green_light"></TextView>
+            android:text="DANH SÁCH BÀI HÁT"
+            android:textColor="#616161"
+            android:textSize="18sp"
+            android:textStyle="bold"></TextView>
 
         <Button
             android:layout_weight="1"
@@ -42,11 +42,30 @@
 
     </LinearLayout>
 
+    <EditText
+        android:id="@+id/editTextSearch"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_below="@id/listBtn"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/edittext_background"
+        android:drawableStart="@drawable/search"
+        android:drawableEnd="@drawable/microphone"
+        android:drawablePadding="8dp"
+        android:ems="10"
+        android:hint="Search Song..."
+        android:inputType="text"
+        android:padding="12dp"
+        android:textColorHint="@color/white" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcv_song"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/listBtn"
+        android:layout_below="@+id/editTextSearch"
         android:layout_marginStart="10dp"
         android:layout_marginBottom="10dp"></androidx.recyclerview.widget.RecyclerView>
 
