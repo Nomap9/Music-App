@@ -56,7 +56,7 @@ public class SongListAdapter extends RecyclerView.Adapter<SongListAdapter.ViewHo
             // Nó cũng thiết lập một OnClickListener cho mỗi mục để mở một DetailActivity khi được nhấp vào, và truyền id của mục đã chọn như một tham số thêm.
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(holder.itemView.getContext(), MainListSong.class);
+                Intent intent=new Intent(holder.itemView.getContext(), DetailActivity.class);
                 intent.putExtra("id",items.getData().get(position).getId());
                 context.startActivity(intent);
             }
