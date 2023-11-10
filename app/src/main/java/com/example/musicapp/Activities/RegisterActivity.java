@@ -72,7 +72,7 @@ public class RegisterActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(JSONObject response) {
                         // Xử lý phản hồi từ API
-                        Toast.makeText(getApplicationContext(),"dang ki thanh cong",Toast.LENGTH_LONG);
+                        Toast.makeText(getApplicationContext(),"dang ki thanh cong",Toast.LENGTH_LONG).show();
                         Log.d("API Response", response.toString());
                         Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
                         startActivity(intent);
@@ -82,7 +82,7 @@ public class RegisterActivity extends AppCompatActivity {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         // Xử lý lỗi
-                        Toast.makeText(getApplicationContext(),"dang ki that bai",Toast.LENGTH_LONG);
+                        Toast.makeText(getApplicationContext(),"dang ki that bai",Toast.LENGTH_LONG).show();
                         Log.e("API Error", error.toString());
                     }
                 });

@@ -64,7 +64,7 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(JSONObject response) {
                         // Xử lý phản hồi từ API
-                        Toast.makeText(getApplicationContext(),"dang nhap thanh cong",Toast.LENGTH_LONG);
+                        Toast.makeText(getApplicationContext(),"dang nhap thanh cong",Toast.LENGTH_LONG).show();
                         Log.d("API Response", response.toString());
                         //lấy dữ liệu từ api gửi về
                         User user = new User();
@@ -87,7 +87,7 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         // Xử lý lỗi
-                        Toast.makeText(getApplicationContext(),"dang nhap that bai",Toast.LENGTH_LONG);
+                        Toast.makeText(getApplicationContext(),"dang nhap that bai",Toast.LENGTH_LONG).show();
                         Log.e("API Error", error.toString());
                     }
                 });

@@ -8,11 +8,13 @@ import androidx.viewpager2.widget.CompositePageTransformer;
 import androidx.viewpager2.widget.MarginPageTransformer;
 import androidx.viewpager2.widget.ViewPager2;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -56,7 +58,18 @@ public class MainActivity extends AppCompatActivity {
         sendRequestBestSongs();
         sendRequestUpComming();
         sendRequestCategory();
+
+        TextView view = findViewById(R.id.profile);
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
+                startActivity(intent);
+
+            }
+        });
     }
+
 
     private void sendRequestBestSongs() {
         mRequestQueue= Volley.newRequestQueue(this);
